@@ -1,0 +1,278 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.page_1{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(to right, #000, #0A0039);
+}
+
+nav{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    top: 0;
+    background-color: #08DC6E;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+ul{
+    display: flex;
+    gap: 30px; 
+    list-style: none;
+    width: 100%;
+}
+
+marquee{
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.flex{
+width: 100%;
+display: flex;
+justify-content: space-around;
+align-items: center;
+padding-top: 3%;
+}
+
+.name h1{
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.STA h1{
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 1100;
+    font-size: 40px;
+}
+
+.right img{
+    width: 85%;
+    height: 60%;
+    border-radius: 10px;
+    padding-top: 3%;
+}
+
+.main_box{
+    width: 90%;
+    height: 30vh;
+    background: linear-gradient(to right, #03A2FE, #00375F, #051D6D);
+    padding: 1.5%;
+    border-radius: 15px;
+    display: flex;
+}
+
+
+.main_box .left_side{
+    width: 70%;
+}
+
+.main_box .right_side{
+    width: 30%;
+}
+
+.main_box h1{
+color: white;
+font-family: sans-serif;
+}
+
+.main_box ul{
+    display: grid;
+    padding-top: 1%;
+}
+
+.main_box ul li{
+    color: white;
+    font-family: sans-serif;
+}
+
+.main_box span{
+    color: white;
+}
+
+.main_box .right_side h2{
+    color: white;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+form{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 2%;
+}
+
+#name{
+    background-color: #ffffffd2;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 2%;
+}
+
+#number{
+    background-color: #ffffffd2;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 2%;
+}
+
+form button{
+    background-color: #FF710C;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 2%;
+    color: white;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.page_2{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #000, #0A0039);
+    display: grid;
+    place-items: center;
+}
+
+.page_2 h1{
+    color: white;
+    font-family: sans-serif;
+}
+
+.course_flex{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.junior{
+    width: 25%;
+    height: 72vh; 
+    background-color: white;
+    border-radius: 15px;
+    padding: 2%;
+    display: grid;
+    place-items: center;
+}
+
+.junior h2{
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    font-family: fantasy;
+    font-size: 40px;
+}
+
+.junior ul{
+    display: grid;
+    list-style: disc;
+    font-family: sans-serif;
+    font-size: 25px;
+    display: grid;
+    place-items: center;
+}
+
+.junior button{
+    background-color: #FF710C;
+    border: none;
+    border-radius: 15px;
+    width: 70%;
+    height: 50%;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.general{
+    width: 25%;
+    height: 72vh; 
+    background-color: white;
+    border-radius: 15px;
+    padding: 2%;
+    display: grid;
+    place-items: center;
+}
+
+.general h2{
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    font-family: fantasy;
+    font-size: 40px;
+}
+
+.general ul{
+    display: grid;
+    list-style: disc;
+    font-family: sans-serif;
+    font-size: 25px;
+    display: grid;
+    place-items: center;
+}
+
+
+.general button{
+    background-color: #FF710C;
+    border: none;
+    border-radius: 15px;
+    width: 70%;
+    height: 50%;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media (max-width: 440px) {
+    .course_flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .junior, .general {
+        width: 90%;
+        height: auto;
+        padding: 5%;
+    }
+
+    .junior button, .general button {
+        height: 60px;
+        width: 100%;
+    }
+
+    marquee {
+        font-size: 12px; 
+        width: 30%; 
+    }
+
+    .STA h1 {
+        font-size: 28px;
+    }
+
+    .main_box {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .main_box .left_side, .main_box .right_side {
+        width: 100%;
+    }
+
+    form button {
+        padding: 5%;
+    }
+}
