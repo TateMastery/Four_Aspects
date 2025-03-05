@@ -1,17 +1,17 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.page_1{
+.page_1 {
     height: 100vh;
     display: grid;
     place-items: center;
     background: linear-gradient(to right, #000, #0A0039);
 }
 
-nav{
+nav {
     width: 100%;
     height: 10%;
     position: absolute;
@@ -22,47 +22,47 @@ nav{
     align-items: center;
 }
 
-ul{
+ul {
     display: flex;
-    gap: 30px; 
+    gap: 30px;
     list-style: none;
     width: 100%;
 }
 
-marquee{
+marquee {
     color: white;
     font-family: sans-serif;
     font-size: 20px;
 }
 
-.flex{
-width: 100%;
-display: flex;
-justify-content: space-around;
-align-items: center;
-padding-top: 3%;
+.flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 3%;
 }
 
-.name h1{
+.name h1 {
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.STA h1{
+.STA h1 {
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 1100;
     font-size: 40px;
 }
 
-.right img{
+.right img {
     width: 85%;
     height: 60%;
     border-radius: 10px;
     padding-top: 3%;
 }
 
-.main_box{
+.main_box {
     width: 90%;
     height: 30vh;
     background: linear-gradient(to right, #03A2FE, #00375F, #051D6D);
@@ -71,48 +71,47 @@ padding-top: 3%;
     display: flex;
 }
 
-
-.main_box .left_side{
+.main_box .left_side {
     width: 70%;
 }
 
-.main_box .right_side{
+.main_box .right_side {
     width: 30%;
 }
 
-.main_box h1{
-color: white;
-font-family: sans-serif;
-}
-
-.main_box ul{
-    display: grid;
-    padding-top: 1%;
-}
-
-.main_box ul li{
+.main_box h1 {
     color: white;
     font-family: sans-serif;
 }
 
-.main_box span{
+.main_box ul {
+    display: grid;
+    padding-top: 1%;
+}
+
+.main_box ul li {
+    color: white;
+    font-family: sans-serif;
+}
+
+.main_box span {
     color: white;
 }
 
-.main_box .right_side h2{
+.main_box .right_side h2 {
     color: white;
     font-family: sans-serif;
     font-weight: 500;
 }
 
-form{
+form {
     width: 100%;
     height: 100%;
     display: grid;
     gap: 2%;
 }
 
-#name{
+#name {
     background-color: #ffffffd2;
     border-radius: 10px;
     border: none;
@@ -120,7 +119,7 @@ form{
     padding: 2%;
 }
 
-#number{
+#number {
     background-color: #ffffffd2;
     border-radius: 10px;
     border: none;
@@ -128,7 +127,7 @@ form{
     padding: 2%;
 }
 
-form button{
+form button {
     background-color: #FF710C;
     border-radius: 10px;
     border: none;
@@ -139,7 +138,7 @@ form button{
     cursor: pointer;
 }
 
-.page_2{
+.page_2 {
     width: 100%;
     height: 100vh;
     background: linear-gradient(to right, #000, #0A0039);
@@ -147,21 +146,21 @@ form button{
     place-items: center;
 }
 
-.page_2 h1{
+.page_2 h1 {
     color: white;
     font-family: sans-serif;
 }
 
-.course_flex{
+.course_flex {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-.junior{
+.junior {
     width: 25%;
-    height: 72vh; 
+    height: 72vh;
     background-color: white;
     border-radius: 15px;
     padding: 2%;
@@ -169,7 +168,7 @@ form button{
     place-items: center;
 }
 
-.junior h2{
+.junior h2 {
     color: black;
     font-family: sans-serif;
     text-align: center;
@@ -177,16 +176,15 @@ form button{
     font-size: 40px;
 }
 
-.junior ul{
+.junior ul {
     display: grid;
     list-style: disc;
     font-family: sans-serif;
     font-size: 25px;
-    display: grid;
     place-items: center;
 }
 
-.junior button{
+.junior button {
     background-color: #FF710C;
     border: none;
     border-radius: 15px;
@@ -197,9 +195,9 @@ form button{
     cursor: pointer;
 }
 
-.general{
+.general {
     width: 25%;
-    height: 72vh; 
+    height: 72vh;
     background-color: white;
     border-radius: 15px;
     padding: 2%;
@@ -207,7 +205,7 @@ form button{
     place-items: center;
 }
 
-.general h2{
+.general h2 {
     color: black;
     font-family: sans-serif;
     text-align: center;
@@ -215,17 +213,15 @@ form button{
     font-size: 40px;
 }
 
-.general ul{
+.general ul {
     display: grid;
     list-style: disc;
     font-family: sans-serif;
     font-size: 25px;
-    display: grid;
     place-items: center;
 }
 
-
-.general button{
+.general button {
     background-color: #FF710C;
     border: none;
     border-radius: 15px;
@@ -236,43 +232,267 @@ form button{
     cursor: pointer;
 }
 
-@media (max-width: 440px) {
-    .course_flex {
+.page_3 {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #000, #0A0039);
+    display: grid;
+    place-items: center;
+    padding: 5%;
+}
+
+.page_3 h1 {
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+}
+
+.page_3 h3 {
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.page_4 {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #000, #0A0039);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.page_4 h1 {
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    top: 20%;
+}
+
+.text_fil {
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    top: 28%;
+}
+
+.page_4 p {
+    color: white;
+    font-family: fantasy;
+}
+
+.page_4 h3 {
+    font-family: sans-serif;
+    color: gold;
+}
+
+/* Медиа-запросы для адаптивности */
+
+@media (max-width: 940px) {
+    .flex {
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        padding-top: 15%;
     }
 
-    .junior, .general {
-        width: 90%;
-        height: auto;
-        padding: 5%;
-    }
-
-    .junior button, .general button {
-        height: 60px;
-        width: 100%;
-    }
-
-    marquee {
-        font-size: 12px; 
-        width: 30%; 
+    .name h1 {
+        font-size: 28px;
     }
 
     .STA h1 {
-        font-size: 28px;
+        font-size: 32px;
+    }
+
+    .right img {
+        width: 100%;
+        height: auto;
+        padding-top: 5%;
     }
 
     .main_box {
         flex-direction: column;
         height: auto;
+        padding: 3%;
     }
 
-    .main_box .left_side, .main_box .right_side {
+    .main_box .left_side,
+    .main_box .right_side {
         width: 100%;
     }
 
+    .main_box .right_side {
+        margin-top: 20px;
+    }
+
+    .main_box .right_side h2 {
+        font-size: 18px;
+    }
+
+    #name, #number {
+        padding: 3%;
+        font-size: 16px;
+    }
+
     form button {
-        padding: 5%;
+        padding: 3%;
+        font-size: 16px;
+    }
+
+    .course_flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .junior,
+    .general {
+        width: 90%;
+        height: auto;
+        margin-bottom: 20px;
+        padding: 3%;
+    }
+
+    .junior h2,
+    .general h2 {
+        font-size: 32px;
+    }
+
+    .junior ul li,
+    .general ul li {
+        font-size: 20px;
+    }
+
+    .junior button,
+    .general button {
+        height: 40px;
+    }
+
+    .page_4 {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 10%;
+        height: auto; 
+        width: 100%;
+    }
+
+    .text_fil {
+        position: static; 
+        flex-direction: column; 
+        gap: 20px;
+        align-items: center; 
+        margin-bottom: 20px; 
+    }
+
+    .right_fil iframe {
+        width: 70%;
+        height: 250px;
+        margin-left: 20%;
+    }
+}
+
+@media (max-width: 600px) {
+    .flex {
+        padding-top: 12%;
+    }
+
+    .main_box {
+        padding: 4%;
+    }
+
+    .junior,
+    .general {
+        width: 85%;
+    }
+}
+
+@media (max-width: 440px) {
+    nav {
+        height: 6%;
+    }
+
+    nav ul {
+        font-size: 1px;
+        gap: 5px;
+        justify-content: center;
+    }
+
+    marquee {
+        font-size: 12px;
+    }
+
+    .name {
+        margin-top: 0;
+    }
+
+    .name h1 {
+        font-size: 20px;
+    }
+
+    .STA h1 {
+        font-size: 24px;
+    }
+
+    .main_box h1 {
+        font-size: 18px;
+    }
+
+    .main_box ul li {
+        font-size: 12px;
+    }
+
+    .main_box .right_side h2 {
+        font-size: 16px;
+    }
+
+    #name, #number {
+        padding: 4%;
+    }
+
+    form button {
+        padding: 4%;
+    }
+
+    .junior h2,
+    .general h2 {
+        font-size: 30px;
+    }
+
+    .junior ul li,
+    .general ul li {
+        font-size: 16px;
+    }
+
+    .junior button,
+    .general button {
+        width: 70%;
+        font-size: 16px;
+        height: 100%;
+    }
+
+    .page_3 h1 {
+        font-size: 24px;
+    }
+
+    .page_3 h3 {
+        font-size: 14px;
+    }
+
+    .page_4 {
+        padding-top: 15%; 
+    }
+
+    .text_fil {
+        gap: 10px;
+    }
+
+    .page_4 h1 {
+        font-size: 20px;
+    }
+
+    .text_fil p,
+    .text_fil h3 {
+        font-size: 14px;
+    }
+
+    .right_fil iframe {
+        height: 200px;
     }
 }
