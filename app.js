@@ -36,6 +36,7 @@
       : window.innerHeight;
     if (initialHeight - currentHeight > 150) {
       document.body.classList.add("keyboard-fixed");
+      document.querySelector(".app-container").scrollTop = 0;
     } else {
       document.body.classList.remove("keyboard-fixed");
     }
