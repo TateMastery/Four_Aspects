@@ -499,6 +499,10 @@ form button {
     .right_fil iframe {
         height: 200px;
     }
+
+    .page_2 h1{
+        padding-top: 1%;
+    }
 }
 
 

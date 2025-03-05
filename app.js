@@ -43,3 +43,23 @@
     });
   });
   
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const initialHeight = window.visualViewport
+      ? window.visualViewport.height
+      : window.innerHeight;
+      
+    window.visualViewport.addEventListener("resize", () => {
+      const currentHeight = window.visualViewport
+        ? window.visualViewport.height
+        : window.innerHeight;
+      if (initialHeight - currentHeight > 150) {
+        document.body.classList.add("keyboard-fixed");
+        document.querySelector(".app-container").scrollTop = 0;
+      } else {
+        document.body.classList.remove("keyboard-fixed");
+      }
+    });
+  });
+  
