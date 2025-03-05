@@ -506,23 +506,7 @@ form button {
 }
 
 
-.app-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  body.keyboard-open .app-container {
-    padding-bottom: 150px;
-  }
-  .app-container {
-    height: calc(var(--vh, 1vh) * 100);
-    overflow-y: auto;
-  }
+
   
 
   body.keyboard-fixed .page_1,
@@ -537,6 +521,7 @@ form button {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
+  
   
 
  
