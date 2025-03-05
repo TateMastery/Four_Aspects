@@ -3,6 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    overflow: hidden; 
+}
+
 
 .page_1 {
     height: 100vh;
@@ -286,7 +290,9 @@ form button {
     color: gold;
 }
 
-/* Медиа-запросы для адаптивности */
+.page_1, .page_2, .page_3, .page_4 {
+    height: 100dvh; 
+}
 
 @media (max-width: 940px) {
     .flex {
