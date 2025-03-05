@@ -43,3 +43,14 @@
     }
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const inputs = document.querySelectorAll("#registration-form input");
+  inputs.forEach(input => {
+    input.addEventListener("pointerdown", e => {
+      e.preventDefault();
+      input.focus({ preventScroll: true });
+    });
+  });
+});
