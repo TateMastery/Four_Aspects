@@ -95,6 +95,60 @@
       </div>
     </div>
   </div>
+
+
+  <script type="module">
+    
+// Импортируем все необходимые функции из Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDty5wX-1fE4HROHOAReqjonkSZdjHrLYU",
+  authDomain: "four-aspects.firebaseapp.com",
+  databaseURL: "https://four-aspects-default-rtdb.firebaseio.com",
+  projectId: "four-aspects",
+  storageBucket: "four-aspects.firebasestorage.app",
+  messagingSenderId: "920194759100",
+  appId: "1:920194759100:web:43a87f803189eb37ab93b9"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+
+const database = getDatabase(app);
+
+
+const registrationForm = document.getElementById('registration-form');
+const nameInput = document.getElementById('name');
+const numberInput = document.getElementById('number');
+
+
+registrationForm.addEventListener('submit', (e) => {
+  e.preventDefault(); 
+
+  const name = nameInput.value;
+  const number = numberInput.value;
+
+
+  const newUserRef = ref(database, 'users/' + Date.now());  // Используем timestamp как уникальный ID
+  set(newUserRef, {
+    name: name,
+    number: number
+  })
+  .then(() => {
+    alert('Ваши данные успешно отправлены!');
+    registrationForm.reset(); // Очищаем форму после отправки
+  })
+  .catch((error) => {
+    alert('Ошибка при отправке данных: ' + error.message);
+  });
+});
+
+
+  </script>
   <script src="./app.js"></script>
 </body>
 </html>
