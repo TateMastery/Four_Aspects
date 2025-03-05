@@ -520,3 +520,17 @@ form button {
     overflow-y: auto;
   }
   
+
+  body.keyboard-fixed .page_1,
+  body.keyboard-fixed .page_2,
+  body.keyboard-fixed .page_3,
+  body.keyboard-fixed .page_4 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  

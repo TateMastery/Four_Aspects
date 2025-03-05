@@ -24,26 +24,22 @@
  });
 
 
- document.addEventListener("DOMContentLoaded", () => {
+
+
+  document.addEventListener("DOMContentLoaded", () => {
     const initialHeight = window.visualViewport
       ? window.visualViewport.height
       : window.innerHeight;
-  
+      
     window.visualViewport.addEventListener("resize", () => {
       const currentHeight = window.visualViewport
         ? window.visualViewport.height
         : window.innerHeight;
       if (initialHeight - currentHeight > 150) {
-        document.body.classList.add("keyboard-open");
+        document.body.classList.add("keyboard-fixed");
       } else {
-        document.body.classList.remove("keyboard-open");
+        document.body.classList.remove("keyboard-fixed");
       }
     });
   });
-
-  
-  window.addEventListener('resize', () => {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-  });
-  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
   
