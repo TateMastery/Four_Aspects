@@ -42,3 +42,18 @@
     }
   });
 });
+
+
+window.addEventListener('resize', function() {
+  if (window.innerHeight < 500) { 
+    document.body.style.paddingBottom = '200px'; 
+  } else {
+    document.body.style.paddingBottom = '0px'; 
+  }
+});
+document.querySelector('input').addEventListener('focus', function() {
+  this.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+});
