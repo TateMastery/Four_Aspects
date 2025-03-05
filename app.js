@@ -26,18 +26,18 @@
 
 
  document.addEventListener("DOMContentLoaded", () => {
-  let scrollY = 0;
-  const initialHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  const initialHeight = window.visualViewport
+    ? window.visualViewport.height
+    : window.innerHeight;
+    
   window.visualViewport.addEventListener("resize", () => {
-    const currentHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    const currentHeight = window.visualViewport
+      ? window.visualViewport.height
+      : window.innerHeight;
     if (initialHeight - currentHeight > 150) {
-      scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
+      document.body.classList.add("keyboard-fixed");
     } else {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      window.scrollTo(0, scrollY);
+      document.body.classList.remove("keyboard-fixed");
     }
   });
 });
