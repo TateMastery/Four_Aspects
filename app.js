@@ -1,35 +1,29 @@
- const scrollButtons = document.querySelectorAll(".scroll-button");
- const form = document.getElementById("registration-form");
+const scrollButtons = document.querySelectorAll(".scroll-button");
+const form = document.getElementById("registration-form");
 
+scrollButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    form.scrollIntoView({ behavior: "smooth" });
 
- scrollButtons.forEach(button => {
-   button.addEventListener("click", () => {
-   
-     form.scrollIntoView({ behavior: "smooth" });
+    let blinkCount = 0;
+    const blinkInterval = setInterval(() => {
+      form.style.transition = "background-color 0.3s";
+      form.style.backgroundColor = blinkCount % 2 === 0 ? "#fff" : "transparent";
+      blinkCount++;
 
-     
-     let blinkCount = 0;
-     const blinkInterval = setInterval(() => {
-       form.style.transition = "background-color 0.3s";
-       form.style.backgroundColor = blinkCount % 2 === 0 ? "#fff" : "transparent";
-       blinkCount++;
+      if (blinkCount === 4) {
+        clearInterval(blinkInterval);
+        form.style.backgroundColor = "transparent";
+      }
+    }, 400);
+  });
+});
 
-       
-       if (blinkCount === 4) {
-         clearInterval(blinkInterval);
-         form.style.backgroundColor = "transparent"; 
-       }
-     }, 400); 
-   });
- });
-
-
-
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const initialHeight = window.visualViewport
     ? window.visualViewport.height
     : window.innerHeight;
-    
+
   window.visualViewport.addEventListener("resize", () => {
     const currentHeight = window.visualViewport
       ? window.visualViewport.height
@@ -43,25 +37,37 @@
   });
 });
 
-
-window.addEventListener('resize', function() {
-  if (window.innerHeight < 500) { 
-    document.body.style.paddingBottom = '200px'; 
+window.addEventListener("resize", function () {
+  if (window.innerHeight < 500) {
+    document.body.style.paddingBottom = "200px";
   } else {
-    document.body.style.paddingBottom = '0px'; 
+    document.body.style.paddingBottom = "0px";
   }
 });
-document.querySelector('input').addEventListener('focus', function() {
+
+document.querySelector("input").addEventListener("focus", function () {
   this.scrollIntoView({
-    behavior: 'smooth',
-    block: 'center'
+    behavior: "smooth",
+    block: "center",
   });
 });
 
 
-const langSelector = document.getElementById('language-selector');
-langSelector.addEventListener('change', () => {
-  const lang = langSelector.value;
-  document.querySelectorAll('.ru').forEach(el => el.style.display = lang === 'ru' ? 'block' : 'none');
-  document.querySelectorAll('.uz').forEach(el => el.style.display = lang === 'uz' ? 'block' : 'none');
+const languageSelector = document.getElementById("language-selector");
+const ruElements = document.querySelectorAll(".ru");
+const uzElements = document.querySelectorAll(".uz");
+
+languageSelector.addEventListener("change", () => {
+  const selectedLanguage = languageSelector.value;
+
+  if (selectedLanguage === "ru") {
+    toggleLanguage(ruElements, uzElements);
+  } else if (selectedLanguage === "uz") {
+    toggleLanguage(uzElements, ruElements);
+  }
 });
+
+function toggleLanguage(showElements, hideElements) {
+  showElements.forEach((el) => (el.style.display = "block"));
+  hideElements.forEach((el) => (el.style.display = "none"));
+}
