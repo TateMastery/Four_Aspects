@@ -20,14 +20,10 @@ scrollButtons.forEach((button) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const initialHeight = window.visualViewport
-    ? window.visualViewport.height
-    : window.innerHeight;
+  const initialHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
 
   window.visualViewport.addEventListener("resize", () => {
-    const currentHeight = window.visualViewport
-      ? window.visualViewport.height
-      : window.innerHeight;
+    const currentHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
     if (initialHeight - currentHeight > 150) {
       document.body.classList.add("keyboard-fixed");
       document.querySelector(".app-container").scrollTop = 0;
@@ -37,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-window.addEventListener("resize", function () {
+window.addEventListener("resize", () => {
   if (window.innerHeight < 500) {
     document.body.style.paddingBottom = "200px";
   } else {
@@ -46,12 +42,8 @@ window.addEventListener("resize", function () {
 });
 
 document.querySelector("input").addEventListener("focus", function () {
-  this.scrollIntoView({
-    behavior: "smooth",
-    block: "center",
-  });
+  this.scrollIntoView({ behavior: "smooth", block: "center" });
 });
-
 
 const languageSelector = document.getElementById("language-selector");
 const ruElements = document.querySelectorAll(".ru");
@@ -71,3 +63,44 @@ function toggleLanguage(showElements, hideElements) {
   showElements.forEach((el) => (el.style.display = "block"));
   hideElements.forEach((el) => (el.style.display = "none"));
 }
+
+const nameRu = document.getElementById("name-ru");
+const nameUz = document.getElementById("name-uz");
+const numberRu = document.getElementById("number-ru");
+const numberUz = document.getElementById("number-uz");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const isUzbek = document.querySelector(".uz").style.display !== "none";
+
+  if (isUzbek) {
+    nameRu.removeAttribute("required");
+    numberRu.removeAttribute("required");
+    nameUz.setAttribute("required", "required");
+    numberUz.setAttribute("required", "required");
+  } else {
+    nameUz.removeAttribute("required");
+    numberUz.removeAttribute("required");
+    nameRu.setAttribute("required", "required");
+    numberRu.setAttribute("required", "required");
+  }
+
+  const name = isUzbek ? nameUz.value : nameRu.value;
+  const number = isUzbek ? numberUz.value : numberRu.value;
+
+  if (!name || !number) {
+    alert("Заполните все поля!");
+    return;
+  }
+
+  const newUserRef = ref(database, "users/" + Date.now());
+  set(newUserRef, { name, number })
+    .then(() => {
+      alert("Ваши данные успешно отправлены!");
+      form.reset();
+    })
+    .catch((error) => {
+      alert("Ошибка при отправке данных: " + error.message);
+    });
+});

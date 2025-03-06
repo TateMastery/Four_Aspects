@@ -12,11 +12,9 @@
     <nav>
       <ul>
         <marquee class="ru"><i class="fa-solid fa-fire"></i> Огромные скидки!</marquee>
-        <marquee class="uz" style="display: none;"><i class="fa-solid fa-fire"></i> Katta chegirmalar!</marquee>
-
+        <marquee class="uz"><i class="fa-solid fa-fire"></i> Katta chegirmalar!</marquee>
         <marquee class="ru"><i class="fa-solid fa-fire"></i> Только до 1 апреля!</marquee>
-        <marquee class="uz" style="display: none;"><i class="fa-solid fa-fire"></i> Faqat 1-aprelgacha!</marquee>
-
+        <marquee class="uz"><i class="fa-solid fa-fire"></i> Faqat 1-aprelgacha!</marquee>
         <select id="language-selector">
           <option value="ru">RU</option>
           <option value="uz">UZ</option>
@@ -31,13 +29,11 @@
             <h1>FOUR</h1>
             <h1>ASPECTS</h1>
           </div>
-
           <div class="STA">
             <h1 class="ru">Учись у лучших – говори, как носитель!</h1>
-            <h1 class="uz" style="display: none;">Eng yaxshilaridan o'rgan – so'zla, xuddi ona tilingda gapirgandek!</h1>
+            <h1 class="uz">Eng yaxshilaridan o'rgan – so'zla, xuddi ona tilingda gapirgandek!</h1>
           </div>
         </div>
-
         <div class="right">
           <img src="./image.png" alt="photo" />
         </div>
@@ -46,33 +42,25 @@
       <div class="main_box">
         <div class="left_side">
           <h1 class="ru">Начни говорить, как носитель — с выгодой 20%</h1>
-          <h1 class="uz" style="display: none;">20% chegirma bilan ona tiliday gapirishni boshlang</h1>
-
+          <h1 class="uz">20% chegirma bilan ona tiliday gapirishni boshlang</h1>
           <ul>
             <li class="ru"><span>•</span>Гарантируем прогресс после первых недель занятий</li>
-            <li class="uz" style="display: none;"><span>•</span>Bir necha hafta ichida natijalarga kafolat beramiz</li>
-
+            <li class="uz"><span>•</span>Bir necha hafta ichida natijalarga kafolat beramiz</li>
             <li class="ru"><span>•</span>Учим только «живому» языку</li>
-            <li class="uz" style="display: none;"><span>•</span>Faqat amaliy tilni o'rgatamiz</li>
-
+            <li class="uz"><span>•</span>Faqat amaliy tilni o'rgatamiz</li>
             <li class="ru"><span>•</span>Работаем с любыми уровнями и целями</li>
-            <li class="uz" style="display: none;"><span>•</span>Har qanday daraja va maqsad bilan ishlaymiz</li>
+            <li class="uz"><span>•</span>Har qanday daraja va maqsad bilan ishlaymiz</li>
           </ul>
         </div>
 
         <div class="right_side">
           <form id="registration-form">
-            <h2 class="ru">Подайте заявку сейчас и учитесь со скидкой даже после завершения акции</h2>
-            <h2 class="uz" style="display: none;">Hozir ariza bering va aksiya tugagandan keyin ham chegirma bilan o'qing</h2>
-
-            <input type="text" required id="name" placeholder="Имя" class="ru" />
-            <input type="text" required id="name" placeholder="Ism" class="uz" style="display: none;" />
-
-            <input type="number" required minlength="9" maxlength="10" placeholder="Номер телефона" id="number" class="ru" />
-            <input type="number" required minlength="9" maxlength="10" placeholder="Telefon raqam" id="number" class="uz" style="display: none;" />
-
-            <button class="ru">записаться</button>
-            <button class="uz" style="display: none;">ro'yxatdan o'tish</button>
+            <input type="text" id="name-ru" name="nameRu" placeholder="Имя" class="ru" required>
+            <input type="text" id="number-ru" name="numberRu" placeholder="Номер телефона" class="ru" required>
+            <input type="text" id="name-uz" name="nameUz" placeholder="Ism" class="uz" style="display:none">
+            <input type="text" id="number-uz" name="numberUz" placeholder="Telefon raqami" class="uz" style="display:none">
+            <button type="submit" class="ru">Отправить</button>
+            <button type="submit" class="uz" style="display:none">Yuborish</button>
           </form>
         </div>
       </div>
@@ -161,57 +149,138 @@
 
 
   <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
     
+    const firebaseConfig = {
+      apiKey: "AIzaSyDty5wX-1fE4HROHOAReqjonkSZdjHrLYU",
+      authDomain: "four-aspects.firebaseapp.com",
+      databaseURL: "https://four-aspects-default-rtdb.firebaseio.com",
+      projectId: "four-aspects",
+      storageBucket: "four-aspects.firebasestorage.app",
+      messagingSenderId: "920194759100",
+      appId: "1:920194759100:web:43a87f803189eb37ab93b9"
+    };
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+ 
+    const scrollButtons = document.querySelectorAll(".scroll-button");
+    const form = document.getElementById("registration-form");
+
+    scrollButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        form.scrollIntoView({ behavior: "smooth" });
+        let blinkCount = 0;
+        const blinkInterval = setInterval(() => {
+          form.style.transition = "background-color 0.3s";
+          form.style.backgroundColor = blinkCount % 2 === 0 ? "#fff" : "transparent";
+          blinkCount++;
+          if (blinkCount === 4) {
+            clearInterval(blinkInterval);
+            form.style.backgroundColor = "transparent";
+          }
+        }, 400);
+      });
+    });
+
+ 
+    document.addEventListener("DOMContentLoaded", () => {
+      const initialHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+      window.visualViewport.addEventListener("resize", () => {
+        const currentHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+        if (initialHeight - currentHeight > 150) {
+          document.body.classList.add("keyboard-fixed");
+          document.querySelector(".app-container").scrollTop = 0;
+        } else {
+          document.body.classList.remove("keyboard-fixed");
+        }
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerHeight < 500) {
+        document.body.style.paddingBottom = "200px";
+      } else {
+        document.body.style.paddingBottom = "0px";
+      }
+    });
+
+    
+    document.querySelector("input").addEventListener("focus", function () {
+      this.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+ 
+    const languageSelector = document.getElementById("language-selector");
+    const ruElements = document.querySelectorAll(".ru");
+    const uzElements = document.querySelectorAll(".uz");
+
+    languageSelector.addEventListener("change", () => {
+      const selectedLanguage = languageSelector.value;
+      if (selectedLanguage === "ru") {
+        toggleLanguage(ruElements, uzElements);
+      } else if (selectedLanguage === "uz") {
+        toggleLanguage(uzElements, ruElements);
+      }
+    });
+
+    function toggleLanguage(showElements, hideElements) {
+      showElements.forEach((el) => (el.style.display = "block"));
+      hideElements.forEach((el) => (el.style.display = "none"));
+    }
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDty5wX-1fE4HROHOAReqjonkSZdjHrLYU",
-  authDomain: "four-aspects.firebaseapp.com",
-  databaseURL: "https://four-aspects-default-rtdb.firebaseio.com",
-  projectId: "four-aspects",
-  storageBucket: "four-aspects.firebasestorage.app",
-  messagingSenderId: "920194759100",
-  appId: "1:920194759100:web:43a87f803189eb37ab93b9"
-};
+    const nameRu = document.getElementById("name-ru");
+    const nameUz = document.getElementById("name-uz");
+    const numberRu = document.getElementById("number-ru");
+    const numberUz = document.getElementById("number-uz");
 
 
-const app = initializeApp(firebaseConfig);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+     
+      const isUzbek = window.getComputedStyle(document.querySelector('.uz')).display !== "none";
 
 
-const database = getDatabase(app);
+      if (isUzbek) {
+        nameRu.removeAttribute("required");
+        numberRu.removeAttribute("required");
+        nameUz.setAttribute("required", "required");
+        numberUz.setAttribute("required", "required");
+      } else {
+        nameUz.removeAttribute("required");
+        numberUz.removeAttribute("required");
+        nameRu.setAttribute("required", "required");
+        numberRu.setAttribute("required", "required");
+      }
 
+      const name = isUzbek ? nameUz.value : nameRu.value;
+      const number = isUzbek ? numberUz.value : numberRu.value;
 
-const registrationForm = document.getElementById('registration-form');
-const nameInput = document.getElementById('name');
-const numberInput = document.getElementById('number');
+      if (!name || !number) {
+        alert("Заполните все поля!");
+        return;
+      }
 
-
-registrationForm.addEventListener('submit', (e) => {
-  e.preventDefault(); 
-
-  const name = nameInput.value;
-  const number = numberInput.value;
-
-
-  const newUserRef = ref(database, 'users/' + Date.now());  
-  set(newUserRef, {
-    name: name,
-    number: number
-  })
-  .then(() => {
-    alert('Ваши данные успешно отправлены!');
-    registrationForm.reset(); 
-  })
-  .catch((error) => {
-    alert('Ошибка при отправке данных: ' + error.message);
-  });
-});
-
-
+      
+      const newUserRef = ref(database, "users/" + Date.now());
+      set(newUserRef, { name, number })
+        .then(() => {
+          alert("Ваши данные успешно отправлены!");
+          form.reset();
+        })
+        .catch((error) => {
+          alert("Ошибка при отправке данных: " + error.message);
+          console.error("Firebase Error: ", error);
+        });
+    });
   </script>
   <script src="./app.js"></script>
+</body>
+</html>
 </body>
 </html>
