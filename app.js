@@ -57,3 +57,11 @@ document.querySelector('input').addEventListener('focus', function() {
     block: 'center'
   });
 });
+
+
+const langSelector = document.getElementById('language-selector');
+langSelector.addEventListener('change', () => {
+  const lang = langSelector.value;
+  document.querySelectorAll('.ru').forEach(el => el.style.display = lang === 'ru' ? 'block' : 'none');
+  document.querySelectorAll('.uz').forEach(el => el.style.display = lang === 'uz' ? 'block' : 'none');
+});

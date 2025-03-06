@@ -29,6 +29,12 @@ ul {
     width: 100%;
 }
 
+select{
+    border-radius: 15px;
+    background-color: #dcdcdc;
+    border: none;
+}
+
 marquee {
     color: white;
     font-family: sans-serif;

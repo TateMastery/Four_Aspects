@@ -11,12 +11,19 @@
   <div class="app-container">
     <nav>
       <ul>
-        <marquee><i class="fa-solid fa-fire"></i> Огромные скидки!</marquee>
-        <marquee><i class="fa-solid fa-fire"></i> Только до 1 апреля!</marquee>
-        <marquee><i class="fa-solid fa-fire"></i> Огромные скидки!</marquee>
-        <marquee><i class="fa-solid fa-fire"></i> Только до 1 апреля!</marquee>
+        <marquee class="ru"><i class="fa-solid fa-fire"></i> Огромные скидки!</marquee>
+        <marquee class="uz" style="display: none;"><i class="fa-solid fa-fire"></i> Katta chegirmalar!</marquee>
+
+        <marquee class="ru"><i class="fa-solid fa-fire"></i> Только до 1 апреля!</marquee>
+        <marquee class="uz" style="display: none;"><i class="fa-solid fa-fire"></i> Faqat 1-aprelgacha!</marquee>
+
+        <select id="language-selector">
+          <option value="ru">RU</option>
+          <option value="uz">UZ</option>
+        </select>
       </ul>
     </nav>
+
     <div class="page_1">
       <div class="flex">
         <div class="left">
@@ -24,82 +31,138 @@
             <h1>FOUR</h1>
             <h1>ASPECTS</h1>
           </div>
+
           <div class="STA">
-            <h1>Учись у лучших – говори, как носитель!</h1>
+            <h1 class="ru">Учись у лучших – говори, как носитель!</h1>
+            <h1 class="uz" style="display: none;">Eng yaxshilaridan o'rgan – so'zla, xuddi ona tilingda gapirgandek!</h1>
           </div>
         </div>
+
         <div class="right">
           <img src="./image.png" alt="photo" />
         </div>
       </div>
+
       <div class="main_box">
         <div class="left_side">
-          <h1>Начни говорить, как носитель — с выгодой 20%</h1>
+          <h1 class="ru">Начни говорить, как носитель — с выгодой 20%</h1>
+          <h1 class="uz" style="display: none;">20% chegirma bilan ona tiliday gapirishni boshlang</h1>
+
           <ul>
-            <li><span>•</span>Гарантируем прогресс после первых недель занятий</li>
-            <li><span>•</span>Учим только «живому» языку</li>
-            <li><span>•</span>Работаем с любыми уровнями и целями</li>
+            <li class="ru"><span>•</span>Гарантируем прогресс после первых недель занятий</li>
+            <li class="uz" style="display: none;"><span>•</span>Bir necha hafta ichida natijalarga kafolat beramiz</li>
+
+            <li class="ru"><span>•</span>Учим только «живому» языку</li>
+            <li class="uz" style="display: none;"><span>•</span>Faqat amaliy tilni o'rgatamiz</li>
+
+            <li class="ru"><span>•</span>Работаем с любыми уровнями и целями</li>
+            <li class="uz" style="display: none;"><span>•</span>Har qanday daraja va maqsad bilan ishlaymiz</li>
           </ul>
         </div>
+
         <div class="right_side">
           <form id="registration-form">
-            <h2>Подайте заявку сейчас и учитесь со скидкой даже после завершения акции</h2>
-            <input type="text" required id="name" placeholder="Имя" />
-            <input type="number" required minlength="9" maxlength="10" placeholder="Номер телефона" id="number" />
-            <button>записаться</button>
+            <h2 class="ru">Подайте заявку сейчас и учитесь со скидкой даже после завершения акции</h2>
+            <h2 class="uz" style="display: none;">Hozir ariza bering va aksiya tugagandan keyin ham chegirma bilan o'qing</h2>
+
+            <input type="text" required id="name" placeholder="Имя" class="ru" />
+            <input type="text" required id="name" placeholder="Ism" class="uz" style="display: none;" />
+
+            <input type="number" required minlength="9" maxlength="10" placeholder="Номер телефона" id="number" class="ru" />
+            <input type="number" required minlength="9" maxlength="10" placeholder="Telefon raqam" id="number" class="uz" style="display: none;" />
+
+            <button class="ru">записаться</button>
+            <button class="uz" style="display: none;">ro'yxatdan o'tish</button>
           </form>
         </div>
       </div>
     </div>
+
     <div class="page_2">
-      <h1>Выберите курс:</h1>
+      <h1 class="ru">Выберите курс:</h1>
+      <h1 class="uz" style="display: none;">Kursni tanlang:</h1>
+
       <div class="course_flex">
+        <div class="general">
+          <h2 class="ru">General English</h2>
+          <h2 class="uz" style="display: none;">Umumiy Ingliz Tili</h2>
+          <ul>
+            <li class="ru">Грамматика</li>
+            <li class="uz" style="display: none;">Grammatika</li>
+            <li class="ru">Чтение</li>
+            <li class="uz" style="display: none;">O'qish</li>
+            <li class="ru">Произношение</li>
+            <li class="uz" style="display: none;">Talaffuz</li>
+            <li class="ru">Говорение</li>
+            <li class="uz" style="display: none;">Gapirish</li>
+          </ul>
+          <button class="scroll-button ru">ЗАПИСАТЬСЯ</button>
+          <button class="scroll-button uz" style="display: none;">RO'YXATDAN O'TISH</button>
+        </div>
+        
         <div class="junior">
           <h2>Junior English</h2>
           <ul>
-            <li>Основы грамматики</li>
-            <li>Словарный запас</li>
-            <li>Игры и активности</li>
-            <li>Аудирование</li>
+            <li class="ru">Основы грамматики</li>
+            <li class="uz" style="display: none;">Grammatika asoslari</li>
+
+            <li class="ru">Словарный запас</li>
+            <li class="uz" style="display: none;">Leksik zaxira</li>
+
+            <li class="ru">Игры и активности</li>
+            <li class="uz" style="display: none;">O'yinlar va mashg'ulotlar</li>
+
+            <li class="ru">Аудирование</li>
+            <li class="uz" style="display: none;">Tinglash</li>
           </ul>
-          <button class="scroll-button">ЗАПИСАТЬСЯ</button>
-        </div>
-        <div class="general">
-          <h2>General English</h2>
-          <ul>
-            <li>Грамматика</li>
-            <li>Чтение</li>
-            <li>Произношение</li>
-            <li>Говорение</li>
-          </ul>
-          <button class="scroll-button">ЗАПИСАТЬСЯ</button>
+
+          <button class="ru scroll-button">ЗАПИСАТЬСЯ</button>
+          <button class="uz scroll-button" style="display: none;">RO'YXATDAN O'TISH</button>
         </div>
       </div>
     </div>
     <div class="page_3">
-        <h1>О НАШЕМ УЧЕБНОМ ЦЕНТРЕ АНГЛИЙСКОГО ЯЗЫКА</h1>
-      <h3>Учебный центр английского языка FOUR ASPECTS – это место, где создаются идеальные условия для эффективного и результативного изучения английского языка. Мы используем передовые методики обучения, основанные на программе, разработанной Оксфордским университетом (Oxford University Press), которая признана одной из лучших в мире.</h3>
-      <h3>Наша цель – помочь каждому студенту достичь высокого уровня владения английским языком. Мы предлагаем современные учебные материалы, интерактивные занятия и индивидуальный подход к каждому ученику. Обучение проходит в комфортной обстановке с использованием новейших технологий, что делает процесс изучения увлекательным и продуктивным.</h3>
-      <h3>В FOUR ASPECTS мы уделяем особое внимание качеству преподавания и стремимся обеспечить нашим студентам лучшие условия для освоения языка. Наш учебный центр – первый в Узбекистане, который использует данную программу в лицензионном формате, что гарантирует высокий уровень обучения и соответствие международным стандартам.</h3>
-    </div>
-    <div class="page_4">
-      <div class="left_fil">
-        <h1>Наш филиал:</h1>
-        <div class="text_fil">
-          <p>ОРИЕНТИР:</p>
-          <h3>Школа 26</h3>
-        </div>
-      </div>
-      <div class="right_fil">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1702.6260869915734!2d69.31181277215975!3d41.41618783997317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1741170646884!5m2!1sru!2s" width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
+      <h1 class="ru">О НАШЕМ УЧЕБНОМ ЦЕНТРЕ АНГЛИЙСКОГО ЯЗЫКА</h1>
+      <h1 class="uz" style="display: none;">INGLIZ TILI O'QUV MARKAZIMIZ HAQIDA</h1>
+  
+      <h3 class="ru">Учебный центр английского языка FOUR ASPECTS – это место, где создаются идеальные условия для эффективного и результативного изучения английского языка. Мы используем передовые методики обучения, основанные на программе, разработанной Оксфордским университетом (Oxford University Press), которая признана одной из лучших в мире.</h3>
+      <h3 class="uz" style="display: none;">FOUR ASPECTS ingliz tili o'quv markazi - bu ingliz tilini samarali va natijaviy o'rganish uchun ideal sharoitlar yaratilgan joy. Biz dunyodagi eng yaxshi deb tan olingan, Oksford Universiteti (Oxford University Press) tomonidan ishlab chiqilgan dasturga asoslangan ilg'or o'qitish usullaridan foydalanamiz.</h3>
+  
+      <h3 class="ru">Наша цель – помочь каждому студенту достичь высокого уровня владения английским языком. Мы предлагаем современные учебные материалы, интерактивные занятия и индивидуальный подход к каждому ученику. Обучение проходит в комфортной обстановке с использованием новейших технологий, что делает процесс изучения увлекательным и продуктивным.</h3>
+      <h3 class="uz" style="display: none;">Bizning maqsadimiz - har bir talabaning ingliz tilini yuqori darajada egallashiga yordam berish. Biz zamonaviy o'quv materiallari, interaktiv darslar va har bir o'quvchiga individual yondashuvni taklif qilamiz. Darslar qulay muhitda, eng so'nggi texnologiyalardan foydalanib o'tkaziladi, bu esa o'rganish jarayonini qiziqarli va samarali qiladi.</h3>
+  
+      <h3 class="ru">В FOUR ASPECTS мы уделяем особое внимание качеству преподавания и стремимся обеспечить нашим студентам лучшие условия для освоения языка. Наш учебный центр – первый в Узбекистане, который использует данную программу в лицензионном формате, что гарантирует высокий уровень обучения и соответствие международным стандартам.</h3>
+      <h3 class="uz" style="display: none;">FOUR ASPECTSda biz ta'lim sifati va talabalarga eng yaxshi sharoitlarni yaratishga alohida e'tibor qaratamiz. Bizning o'quv markazimiz O'zbekistonda ushbu dasturdan litsenziyalangan formatda foydalanadigan birinchi markaz bo'lib, bu yuqori o'qitish darajasini va xalqaro standartlarga mosligini kafolatlaydi.</h3>
   </div>
+  
+  
+  <div class="page_4">
+      <div class="left_fil">
+          <h1 class="ru">Наш филиал:</h1>
+          <h1 class="uz" style="display: none;">Bizning filialimiz:</h1>
+  
+          <div class="text_fil">
+              <p class="ru">ОРИЕНТИР:</p>
+              <p class="uz" style="display: none;">MO'LGAN JOY:</p>
+  
+              <h3 class="ru">Школа 26</h3>
+              <h3 class="uz" style="display: none;">26-maktab</h3>
+          </div>
+      </div>
+  
+      <div class="right_fil">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1702.6260869915734!2d69.31181277215975!3d41.41618783997317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1741170646884!5m2!1sru!2s" width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+  </div>
+  </div>
+
+
+
 
 
   <script type="module">
     
-// Импортируем все необходимые функции из Firebase
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
 
@@ -133,14 +196,14 @@ registrationForm.addEventListener('submit', (e) => {
   const number = numberInput.value;
 
 
-  const newUserRef = ref(database, 'users/' + Date.now());  // Используем timestamp как уникальный ID
+  const newUserRef = ref(database, 'users/' + Date.now());  
   set(newUserRef, {
     name: name,
     number: number
   })
   .then(() => {
     alert('Ваши данные успешно отправлены!');
-    registrationForm.reset(); // Очищаем форму после отправки
+    registrationForm.reset(); 
   })
   .catch((error) => {
     alert('Ошибка при отправке данных: ' + error.message);
