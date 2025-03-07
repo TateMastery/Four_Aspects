@@ -18,7 +18,7 @@ nav {
     top: 0;
     background-color: #08DC6E;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 

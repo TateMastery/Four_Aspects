@@ -12,9 +12,9 @@
     <nav>
       <ul>
         <marquee class="ru"><i class="fa-solid fa-fire"></i> Огромные скидки!</marquee>
-        <marquee class="uz"><i class="fa-solid fa-fire"></i> Katta chegirmalar!</marquee>
+        <marquee class="uz" style="display: none;"><i class="fa-solid fa-fire" style="display: none;"></i> Katta chegirmalar!</marquee>
         <marquee class="ru"><i class="fa-solid fa-fire"></i> Только до 1 апреля!</marquee>
-        <marquee class="uz"><i class="fa-solid fa-fire"></i> Faqat 1-aprelgacha!</marquee>
+        <marquee class="uz" style="display: none;"><i class="fa-solid fa-fire" style="display: none;"></i> Faqat 1-aprelgacha!</marquee>
         <select id="language-selector">
           <option value="ru">RU</option>
           <option value="uz">UZ</option>
@@ -31,7 +31,7 @@
           </div>
           <div class="STA">
             <h1 class="ru">Учись у лучших – говори, как носитель!</h1>
-            <h1 class="uz"style="display: none;"> Eng yaxshilaridan o'rgan – so'zla, xuddi ona tilingda gapirgandek!</h1>
+            <h1 class="uz" style="display: none;"> Eng yaxshilaridan o'rgan – so'zla, xuddi ona tilingda gapirgandek!</h1>
           </div>
         </div>
         <div class="right">
@@ -55,10 +55,8 @@
 
         <div class="right_side">
           <form id="registration-form">
-            <input type="text" id="name-ru" name="nameRu" placeholder="Имя" class="ru" required>
-            <input type="text" id="number-ru" name="numberRu" placeholder="Номер телефона" class="ru" required>
-            <input type="text" id="name-uz" name="nameUz" placeholder="Ism" class="uz" style="display:none">
-            <input type="text" id="number-uz" name="numberUz" placeholder="Telefon raqami" class="uz" style="display:none">
+            <input type="text" id="name-ru"  placeholder="Имя"  required>
+            <input type="text" id="number-ru" placeholder="Номер телефона"  required>
             <button type="submit" class="ru">Отправить</button>
             <button type="submit" class="uz" style="display:none">Yuborish</button>
           </form>
