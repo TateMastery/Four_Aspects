@@ -156,15 +156,14 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
     import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
   
-    // Инициализация Firebase
     const firebaseConfig = {
-      apiKey: "AIzaSyDty5wX-1fE4HROHOAReqjonkSZdjHrLYU",
-      authDomain: "four-aspects.firebaseapp.com",
-      databaseURL: "https://four-aspects-default-rtdb.firebaseio.com",
-      projectId: "four-aspects",
-      storageBucket: "four-aspects.firebasestorage.app",
-      messagingSenderId: "920194759100",
-      appId: "1:920194759100:web:43a87f803189eb37ab93b9"
+        apiKey: "AIzaSyDty5wX-1fE4HROHOAReqjonkSZdjHrLYU",
+        authDomain: "four-aspects.firebaseapp.com",
+        databaseURL: "https://four-aspects-default-rtdb.firebaseio.com",
+        projectId: "four-aspects",
+        storageBucket: "four-aspects.firebasestorage.app",
+        messagingSenderId: "920194759100",
+        appId: "1:920194759100:web:43a87f803189eb37ab93b9"
     };
   
     const app = initializeApp(firebaseConfig);
@@ -172,51 +171,95 @@
   
     const form = document.getElementById("registration-form");
     const languageSelector = document.getElementById("language-selector");
-  
     const nameRu = document.getElementById("name-ru");
     const numberRu = document.getElementById("number-ru");
     const nameUz = document.getElementById("name-uz");
     const numberUz = document.getElementById("number-uz");
+    const scrollButtons = document.querySelectorAll(".scroll-button");
+
+    function switchLanguage() {
+        const isUzbek = languageSelector.value === "uz";
+        nameRu.style.display = isUzbek ? "none" : "block";
+        numberRu.style.display = isUzbek ? "none" : "block";
+        nameUz.style.display = isUzbek ? "block" : "none";
+        numberUz.style.display = isUzbek ? "block" : "none";
   
-    // Смена языка
-    languageSelector.addEventListener("change", () => {
-      const isUzbek = languageSelector.value === "uz";
+        const ruElements = document.querySelectorAll(".ru");
+        const uzElements = document.querySelectorAll(".uz");
   
-      nameRu.style.display = isUzbek ? "none" : "block";
-      numberRu.style.display = isUzbek ? "none" : "block";
-      nameUz.style.display = isUzbek ? "block" : "none";
-      numberUz.style.display = isUzbek ? "block" : "none";
-    });
+        ruElements.forEach((element) => {
+            element.style.display = isUzbek ? "none" : "block";
+        });
   
-    // Отправка данных в Firebase
+        uzElements.forEach((element) => {
+            element.style.display = isUzbek ? "block" : "none";
+        });
+    }
+
+    function blinkForm() {
+        let blinkCount = 0;
+        const maxBlinks = 2;
+        
+        form.style.transition = 'background-color 0.3s ease';
+
+        const blinkInterval = setInterval(() => {
+            form.style.backgroundColor = 
+                form.style.backgroundColor === 'rgba(255, 255, 255, 0.6)' 
+                ? ''  // Возвращаем исходный фон
+                : 'rgba(255, 255, 255, 0.6)'; // Более заметный белый
+            
+            blinkCount++;
+            if (blinkCount >= maxBlinks * 2) {
+                clearInterval(blinkInterval);
+                setTimeout(() => {
+                    form.style.backgroundColor = ''; // Сбрасываем фон
+                }, 300);
+            }
+        }, 300); // Интервал мигания 300мс
+    }
+
+    scrollButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            setTimeout(blinkForm, 500);
+        });
+    });  
+   
+    switchLanguage();
+    languageSelector.addEventListener("change", switchLanguage);
+  
     form.addEventListener("submit", (e) => {
-      e.preventDefault();
+        e.preventDefault();
+        const isUzbek = languageSelector.value === "uz";
+        const name = isUzbek ? nameUz.value.trim() : nameRu.value.trim();
+        const number = isUzbek ? numberUz.value.trim() : numberRu.value.trim();
   
-      const isUzbek = languageSelector.value === "uz";
-      const name = isUzbek ? nameUz.value.trim() : nameRu.value.trim();
-      const number = isUzbek ? numberUz.value.trim() : numberRu.value.trim();
+        if (!name || !number) {
+            alert("Заполните все поля!");
+            return;
+        }
   
-      if (!name || !number) {
-        alert("Заполните все поля!");
-        return;
-      }
+        const userRef = ref(database, "users/" + Date.now());
   
-      const userRef = ref(database, "users/" + Date.now());
-  
-      set(userRef, {
-        name: name,
-        number: number,
-        language: isUzbek ? "uz" : "ru"
-      })
+        set(userRef, {
+            name: name,
+            number: number,
+            language: isUzbek ? "uz" : "ru"
+        })
         .then(() => {
-          alert("Ваши данные успешно отправлены!");
-          form.reset();
+            alert("Ваши данные успешно отправлены!");
+            form.reset();
         })
         .catch((error) => {
-          alert("Ошибка при отправке данных: " + error.message);
-          console.error("Firebase Error: ", error);
+            alert("Ошибка при отправке данных: " + error.message);
+            console.error("Firebase Error: ", error);
         });
     });
-  </script>
+</script>
+</script>
 </body>
 </html>
