@@ -176,6 +176,8 @@
     const nameUz = document.getElementById("name-uz");
     const numberUz = document.getElementById("number-uz");
     const scrollButtons = document.querySelectorAll(".scroll-button");
+    const junior = document.querySelector(".junior");
+    const general = document.querySelector(".general");
 
     function switchLanguage() {
         const isUzbek = languageSelector.value === "uz";
@@ -205,17 +207,39 @@
         const blinkInterval = setInterval(() => {
             form.style.backgroundColor = 
                 form.style.backgroundColor === 'rgba(255, 255, 255, 0.6)' 
-                ? ''  // Возвращаем исходный фон
-                : 'rgba(255, 255, 255, 0.6)'; // Более заметный белый
+                ? '' 
+                : 'rgba(255, 255, 255, 0.6)';
             
             blinkCount++;
             if (blinkCount >= maxBlinks * 2) {
                 clearInterval(blinkInterval);
                 setTimeout(() => {
-                    form.style.backgroundColor = ''; // Сбрасываем фон
+                    form.style.backgroundColor = '';
                 }, 300);
             }
-        }, 300); // Интервал мигания 300мс
+        }, 300);
+    }
+
+    // Новая функция для скрытия junior и general на мобильных устройствах
+    function hideCoursesOnMobile() {
+        const inputs = [nameRu, numberRu, nameUz, numberUz];
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                // Проверяем ширину экрана
+                if (window.matchMedia("(max-width: 440px)").matches) {
+                    junior.style.display = 'none';
+                    general.style.display = 'none';
+                }
+            });
+            
+            // Опционально: возвращаем блоки, когда фокус уходит
+            input.addEventListener('blur', () => {
+                if (window.matchMedia("(max-width: 440px)").matches) {
+                    junior.style.display = ''; // Возвращаем исходное состояние
+                    general.style.display = '';
+                }
+            });
+        });
     }
 
     scrollButtons.forEach(button => {
@@ -231,6 +255,7 @@
    
     switchLanguage();
     languageSelector.addEventListener("change", switchLanguage);
+    hideCoursesOnMobile(); // Запускаем функцию для инпутов
   
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -259,7 +284,6 @@
             console.error("Firebase Error: ", error);
         });
     });
-</script>
 </script>
 </body>
 </html>
